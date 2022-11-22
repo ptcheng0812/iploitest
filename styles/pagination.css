@@ -1,0 +1,28 @@
+.ais-Pagination{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+}
+
+.ais-Pagination-list {
+  display: flex;
+  max-height: max-content;
+}
+
+.ais-Pagination-item {
+  margin: 15px;
+
+}
+
+.ais-Pagination-item:hover {
+  background-color:#65bc67;
+  box-shadow: 1rem;
+  opacity: 70%;
+  border-radius: 15%;
+  color: white;
+}
+
+.ais-Pagination-link {
+  margin: 4px;
+}

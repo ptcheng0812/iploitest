@@ -1,15 +1,25 @@
+@import url("pagination.css");
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: rgb(130,209,166);
+  background: linear-gradient(315deg, rgba(130,209,166,1) 0%, rgba(251,253,237,1) 21%, rgba(237,236,251,1) 50%, rgba(156,216,215,1) 79%, rgba(130,209,166,1) 96%);
+
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
+
+.ais-SearchBox {
+  display: none;
+}
+
 
 * {
   box-sizing: border-box;

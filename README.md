@@ -28,4 +28,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployed on Vercel
 
-Link of deployed full work is https://iploitest-ptcheng0812.vercel.app/
+Link of deployed full work is https://inploitest-ptcheng0812.vercel.app/

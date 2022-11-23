@@ -61,7 +61,6 @@ export default function Home() {
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css" integrity="sha512-FA9cIbtlP61W0PRtX36P6CGRy0vZs0C2Uw26Q1cMmj3xwhftftymr0sj8/YeezDnRwL9wtWw8ZwtCiTDXlXGjQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.41.0/dist/full.css" rel="stylesheet" type="text/css" />
-        <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
       </Head>
 
       <main className={styles.main}>
@@ -96,7 +95,7 @@ export default function Home() {
         <div className={styles.searchBox}>
           <div className='w-1/2 h-16 p-3 bg-white rounded-md shadow-xl flex items-center'>
             <div className="flex justify-between w-full">
-              <input type="text" placeholder="Search jobs by keyword or location" className="input w-full"
+              <input type="text" placeholder="Search jobs by keyword or location" className="input input-ghost w-full"
                 onChange={handleInput} onKeyPress={handleKeypress} />
               <div className='flex items-center mx-4' onClick={handleSubmit}><i className="fa-solid fa-magnifying-glass"></i></div>
             </div>

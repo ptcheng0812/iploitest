@@ -7,10 +7,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import ReactHtmlParser from 'react-html-parser';
 import { Animate } from "react-simple-animate";
+import styled from 'styled-components';
 
 import algoliasearch from 'algoliasearch';
 // import {  } from 'react-instantsearch-dom';
-import { InstantSearch, Hits, Pagination, SearchBox, Configure } from 'react-instantsearch-dom';
+import { InstantSearch, Hits, Pagination, SearchBox, Configure, connectStateResults } from 'react-instantsearch-dom';
 
 import styles from '../../styles/Home.module.css'
 
@@ -24,6 +25,37 @@ export default function Jobs() {
   const { search } = router.query
 
   console.log(search);
+
+  //Error Message Home style
+  const ErrorMessageHome = styled.h2`
+  /* Adapt the colors based on primary prop */
+  font-weight: bold;
+  text-decoration: underline;
+  &:hover {
+    color: #65bc67;
+  }
+  }
+`;
+
+  //Error Message Query style
+  const ErrorMessageQuery = styled.h2`
+  /* Adapt the colors based on primary prop */
+  font-weight: bold;
+  text-decoration: underline;
+  &:hover {
+    color: #0070f3;
+  }
+  }
+`;
+
+  const Results = connectStateResults(
+    ({ searchState, searchResults }) =>
+      searchResults && searchResults.nbHits !== 0 ? (
+        <div className="hidden">ok</div>
+      ) : (
+        <div className='flex justify-center'>No results have been found for <ErrorMessageQuery>{search}</ErrorMessageQuery>. Please back to <Link href="/" ><ErrorMessageHome>Home</ErrorMessageHome></Link></div>
+      )
+  );
 
   function Hit(props: any) {
     console.log("props>>>>>", props)
@@ -127,6 +159,7 @@ export default function Jobs() {
               <SearchBox
                 defaultRefinement={search?.toString()}
               />
+              <Results />
               <Hits hitComponent={Hit} />
               <Pagination />
             </InstantSearch>

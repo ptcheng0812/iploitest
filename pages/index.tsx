@@ -36,7 +36,7 @@ export default function Home() {
 
   console.log("input>>>", searchQuery);
 
-
+  //Login Button Style
   const LoginButton = styled.button`
   /* Adapt the colors based on primary prop */
   background-color: #65bc67;

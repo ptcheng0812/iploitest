@@ -53,7 +53,7 @@ export default function Jobs() {
       searchResults && searchResults.nbHits !== 0 ? (
         <div className="hidden">ok</div>
       ) : (
-        <div className='flex justify-center'>No results have been found for <ErrorMessageQuery>{search}</ErrorMessageQuery>. Please back to <Link href="/" ><ErrorMessageHome>Home</ErrorMessageHome></Link></div>
+        <div className='flex justify-center'>No results have been found for&nbsp;<ErrorMessageQuery>{search}</ErrorMessageQuery>. Please back to&nbsp;<Link href="/" ><ErrorMessageHome>Home</ErrorMessageHome></Link>.</div>
       )
   );
 

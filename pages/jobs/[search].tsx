@@ -6,6 +6,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import ReactHtmlParser from 'react-html-parser';
+import { Animate } from "react-simple-animate";
 
 import algoliasearch from 'algoliasearch';
 // import {  } from 'react-instantsearch-dom';
@@ -51,8 +52,8 @@ export default function Jobs() {
                 </div>
                 <div className="flex justify-between mt-5">
                   <div className="flex items-center">
-                    <span>Location: {props.hit.country}</span>
-                    <span className="ml-3">Employment Type: {props.hit.employment_type}</span>
+                    <p style={{ color: "#8C8C8C" }}>Location: {props.hit.country}</p>
+                    <p className="ml-3" style={{ color: "#8C8C8C" }}>Employment Type: {props.hit.employment_type}</p>
                   </div>
                   <div>
                     <button className="btn p-3 rounded" type="button" style={{ backgroundColor: "#101840", color: "white" }}>Apply now <span className="material-symbols-outlined">arrow_forward_ios
@@ -77,6 +78,7 @@ export default function Jobs() {
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.41.0/dist/full.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="https://fonts.cdnfonts.com/css/neometric-2" rel="stylesheet"></link>
       </Head>
 
       <main className={styles.main}>
@@ -99,50 +101,38 @@ export default function Jobs() {
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</p>
           </div>
           <div className="flex justify-center w-1/3 invisible">
-            <button className="btn p-3 rounded" type="button" style={{ backgroundColor: "#65bc67", color: "white" }}>Login</button>
+            <button className="btn p-3 rounded login-btn" type="button" style={{ backgroundColor: "#65bc67", color: "white" }}>Login</button>
           </div>
         </div>
 
-        {/* <div className={styles.description}>
-          <div className="flex flex-col gap-3 w-1/3">
-            <div className="bg-white rounded-md flex justify-between p-4">
-              <h2 className={styles.jobTitle}>Job Title</h2>
-              <span>+</span>
-            </div>
+        <Animate
+          play
+          start={{
+            opacity: "40%"
+          }}
+          end={{ opacity: "100%" }}
+          duration={1}
+          delay={0.1}
+        >
+          <div className={styles.search}>
+            <InstantSearch
+              indexName="development_jobs_index"
+              searchClient={searchClient}
+              onSearchStateChange={searchState => {
+                console.log('The search state has changed, here it is now');
+                console.log(searchState);
+              }}
+            >
+              <Configure hitsPerPage={4} />
+              <SearchBox
+                defaultRefinement={search?.toString()}
+              />
+              <Hits hitComponent={Hit} />
+              <Pagination />
+            </InstantSearch>
           </div>
-        </div> */}
+        </Animate>
 
-        {/* <div className={styles.description}>
-          <div className="flex flex-col gap-3 w-1/3">
-            <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-              <div className="collapse-title text-xl font-medium flex">
-                &nbsp; Job Title
-              </div>
-              <div className="collapse-content">
-                <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-
-        <div className={styles.search}>
-          <InstantSearch
-            indexName="development_jobs_index"
-            searchClient={searchClient}
-            onSearchStateChange={searchState => {
-              console.log('The search state has changed, here it is now');
-              console.log(searchState);
-            }}
-          >
-            <Configure hitsPerPage={4} />
-            <SearchBox
-              defaultRefinement={search?.toString()}
-            />
-            <Hits hitComponent={Hit} />
-            <Pagination />
-          </InstantSearch>
-        </div>
 
       </main>
 

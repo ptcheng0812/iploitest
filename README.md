@@ -25,6 +25,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   <img src="https://i.imgur.com/93Xz9r5.png" alt="home_page" style="height: 400px; width:700px;"/>
 - You can expand card to view job details
 
+## Login Feature
+- Modal Design with loading spinner
+
+- Used DummyJson as the external api for fetching login user
+
+  <img src="https://i.imgur.com/qy3Fhso.png" alt="home_page" style="height: 400px; width:700px;"/>
+
+- All dummy accounts containing username and password is in https://dummyjson.com/users
+
 ## Interesting Features
 
 - Preload fade-in animation
